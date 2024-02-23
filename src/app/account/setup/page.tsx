@@ -41,7 +41,7 @@ export default function page() {
         <h1
           style={{
             position: "absolute",
-            left: "27rem",
+            left: "28rem",
             top: "3rem",
             whiteSpace: "nowrap",
             fontSize: "26px",
@@ -81,12 +81,30 @@ export default function page() {
           fontSize: "16px",
           whiteSpace: "nowrap",
           top: "14rem",
-          color: "gray",
+          left: "0rem",
+          color: "white",
+          padding: "0rem",
+          width: "52rem",
+
+          borderRadius: "8px",
+          background: "grey",
         }}
       >
         <Accordion type="single" collapsible orientation="horizontal">
+          {/* position: absolute;
+    background: grey;
+    color: white;
+    border-radius: 8px;
+    width: 52rem;
+    left: 0rem;
+    justify-content: flex-start;
+    padding: 1rem; */}
           <AccordionItem value="item-1">
-            <AccordionTrigger>
+            <AccordionTrigger
+              style={{
+                right: "5rem",
+              }}
+            >
               Learn More About Epsy Analyics setup?
             </AccordionTrigger>
             <AccordionContent>
@@ -145,7 +163,7 @@ export default function page() {
           whiteSpace: "nowrap",
           fontSize: "16px",
           top: "32rem",
-          left: "27rem",
+          left: "28rem",
         }}
       >
         <Tabs defaultValue="account" className="w-[900px] h-5">
@@ -156,15 +174,64 @@ export default function page() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="code">
-            <h4>Web Installation</h4>
+            <h4
+              style={{
+                position: "absolute",
+                fontSizeAdjust: "medium",
+                left: "-28rem",
+                bottom: "-5rem",
+                fontSize: "16px",
+              }}
+            >
+              Web Installation
+            </h4>
 
-            <p>
-              {
-                'Copy and paste the snippet below before your website’s closing "</head>" tag. Once installed, Heap will automatically start receiving data.'
-              }{" "}
+            <p
+              style={{
+                position: "absolute",
+
+                left: "-11rem",
+                bottom: "-6rem",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              Copy and paste the snippet below before your website’s closing{" "}
+              {"</head>}"} tag. Once installed, <br></br>Heap will automatically
+              start receiving data.
+            </p>
+
+            <span> "Thiss "</span>
+          </TabsContent>
+          {/* //Googgle Tag Mananager UI */}
+          <TabsContent value="Google Tag MAnager">
+            <h4
+              style={{
+                position: "absolute",
+                fontSizeAdjust: "medium",
+                left: "-28rem",
+                bottom: "-5rem",
+                fontSize: "16px",
+              }}
+            >
+              Google Web Installation
+            </h4>
+
+            <p
+              style={{
+                position: "absolute",
+
+                left: "-11rem",
+                bottom: "-6rem",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              Copy and paste the snippet below before your website’s closing{" "}
+              {"</head>}"} tag. Once installed, <br></br>Heap will automatically
+              start receiving data.
             </p>
           </TabsContent>
-          <TabsContent value="password">Change your password here.</TabsContent>
         </Tabs>
       </div>
     </div>
