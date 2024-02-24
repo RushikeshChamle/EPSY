@@ -22,13 +22,14 @@ import { fontWeight } from "@mui/system";
 
 export default function page() {
   return (
-    <div style={{}}>
+    <div style={{ position: "relative" }}>
       <div
         className="top-header"
         style={{
           padding: "20px 0",
           position: "relative",
           left: "-41rem",
+          width: "100%",
         }}
       >
         <Pagination>
@@ -42,6 +43,7 @@ export default function page() {
           backgroundColor: "lightcyan",
           padding: "20px 0",
           textAlign: "center",
+          width: "100%",
         }}
       >
         <h1 style={{ whiteSpace: "nowrap", fontSize: "26px" }}>Epsy Setup</h1>
@@ -66,6 +68,7 @@ export default function page() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "100%",
         }}
       >
         <p
@@ -98,7 +101,7 @@ export default function page() {
               <AccordionTrigger
                 style={{
                   right: "5rem",
-                  padding: "10px 14px ",
+                  padding: "10px 14px",
                 }}
               >
                 Learn More About Epsy Analytics setup?
@@ -160,16 +163,17 @@ export default function page() {
               whiteSpace: "nowrap",
               fontSize: "16px",
               top: "32rem",
-              left: "28rem",
+              left: "18rem",
             }}
           >
             <Tabs
               defaultValue="account"
-              className="w-[900px] h-5"
+              // className="w-[900px] h-5"
               style={{
                 position: "relative",
                 left: "-6rem",
                 top: "-129px",
+                width: "100%",
               }}
             >
               <TabsList>
@@ -284,10 +288,6 @@ export default function page() {
             </Tabs>
           </div>
         </div>
-      </div>
-
-      <div style={{ position: "relative", color: "black" }}>
-        <div style={{}}></div>
       </div>
     </div>
   );
