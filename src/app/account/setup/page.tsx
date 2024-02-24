@@ -1,4 +1,5 @@
 import React from "react";
+// import { useState } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -21,6 +22,7 @@ import {
 import { fontWeight } from "@mui/system";
 
 export default function page() {
+  // const [selectedTab, setSelectedTab] = useState("code");
   return (
     <div style={{ position: "relative" }}>
       <div
@@ -147,145 +149,133 @@ export default function page() {
               whiteSpace: "nowrap",
               fontSize: "16px",
               top: "26rem",
-              left: "-29rem ",
+              left: "-29rem",
             }}
           >
             Select Install Method
           </h3>
         </div>
-      </div>
-
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div style={{ position: "relative" }}>
-          <div
-            style={{
-              position: "relative",
-              whiteSpace: "nowrap",
-              fontSize: "16px",
-              top: "32rem",
-              left: "18rem",
-            }}
-          >
-            <Tabs
-              defaultValue="account"
-              // className="w-[900px] h-5"
+        <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div
               style={{
                 position: "relative",
-                left: "-6rem",
-                top: "-129px",
-                width: "100%",
+                left: "12rem",
+                justifyContent: "center",
               }}
             >
-              <TabsList>
-                <TabsTrigger value="code">Code</TabsTrigger>
-                <TabsTrigger value="Google Tag Manager">
-                  Google Tag Manager
-                </TabsTrigger>
-              </TabsList>
-              <TabsContent
-                value="code"
+              <div
                 style={{
                   position: "relative",
+                  whiteSpace: "nowrap",
+                  fontSize: "16px",
+                  top: "24rem",
                 }}
               >
-                <h4
-                  style={{
-                    position: "relative",
-                    fontSizeAdjust: "medium",
-                    left: "-28rem",
-                    bottom: "-5rem",
-                    fontSize: "16px",
-                  }}
-                >
-                  Web Installation
-                </h4>
-
-                <p
-                  style={{
-                    position: "relative",
-
-                    left: "-11rem",
-                    bottom: "-3rem",
-                    color: "grey",
-                    fontSize: "13px",
-                  }}
-                >
-                  Copy and paste the snippet below before your website’s closing{" "}
-                  {"</head>}"} tag. Once installed, <br></br>Heap will
-                  automatically start receiving data.
-                </p>
-
-                <textarea
-                  rows="10"
-                  cols="50"
-                  readOnly
-                  style={{
-                    position: "relative",
-                    left: "-8rem",
-                    top: "9rem",
-                    color: "white",
-                    padding: "20px",
-                    height: "123px",
-                  }}
-                >
-                  `Previous Epsy SetupInstall Epsy on your Development
-                  environment Select a platform to get started. Learn More About
-                  Epsy Analytics setup? What type of platform do you want to
-                  track?Don’t worry, you can add more than one! We’re just
-                  getting started. What type of platform do you want to track?`
-                </textarea>
-              </TabsContent>
-
-              {/* Google Tag Manager UI */}
-              <TabsContent value="Google Tag Manager">
-                <h4
-                  style={{
-                    position: "relative",
-                    fontSizeAdjust: "medium",
-                    left: "-28rem",
-                    bottom: "-5rem",
-                    fontSize: "16px",
-                  }}
-                >
-                  Google Web Installation
-                </h4>
-
-                <p
-                  style={{
-                    position: "relative",
-
-                    left: "-11rem",
-                    bottom: "-3rem",
-                    color: "grey",
-                    fontSize: "13px",
-                  }}
-                >
-                  Copy and paste the snippet below before your website’s closing{" "}
-                  {"</head>}"} tag. Once installed, <br></br>Heap will
-                  automatically start receiving data.
-                </p>
-
-                <textarea
-                  rows="10"
-                  cols="50"
-                  readOnly
-                  style={{
-                    position: "relative",
-                    left: "-8rem",
-                    top: "9rem",
-                    color: "white",
-                    padding: "20px",
-                    height: "123px",
-                  }}
-                >
-                  `Previous Epsy SetupInstall Epsy on your Development
-                  environment Select a platform to get started. Learn More About
-                  Epsy Analytics setup? What type of platform do you want to
-                  track?Don’t worry, you can add more than one! We’re just
-                  getting started. What type of platform do you want to track?`
-                </textarea>
-              </TabsContent>
-            </Tabs>
+                <Tabs defaultValue="code">
+                  <TabsList>
+                    <TabsTrigger value="code" selected={true}>
+                      Code
+                    </TabsTrigger>
+                    <TabsTrigger value="Google Tag Manager">
+                      Google Tag Manager
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="code">
+                    <h4
+                      style={{
+                        position: "relative",
+                        fontSizeAdjust: "medium",
+                        left: "-28rem",
+                        bottom: "-5rem",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Web Installation
+                    </h4>
+                    <p
+                      style={{
+                        position: "relative",
+                        left: "-11rem",
+                        bottom: "-3rem",
+                        color: "grey",
+                        fontSize: "13px",
+                      }}
+                    >
+                      Copy and paste the snippet below before your website’s
+                      closing {"</head>}"} tag. Once installed, <br /> Heap will
+                      automatically start receiving data.
+                    </p>
+                    <textarea
+                      rows="10"
+                      cols="50"
+                      readOnly
+                      style={{
+                        position: "relative",
+                        left: "-8rem",
+                        top: "9rem",
+                        color: "white",
+                        padding: "20px",
+                        height: "123px",
+                      }}
+                    >
+                      `Previous Epsy SetupInstall Epsy on your Development
+                      environment Select a platform to get started. Learn More
+                      About Epsy Analytics setup? What type of platform do you
+                      want to track?Don’t worry, you can add more than one!
+                      We’re just getting started. What type of platform do you
+                      want to track?`
+                    </textarea>
+                  </TabsContent>
+                  <TabsContent value="Google Tag Manager">
+                    <h4
+                      style={{
+                        position: "relative",
+                        fontSizeAdjust: "medium",
+                        left: "-28rem",
+                        bottom: "-5rem",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Google Web Installation
+                    </h4>
+                    <p
+                      style={{
+                        position: "relative",
+                        left: "-11rem",
+                        bottom: "-3rem",
+                        color: "grey",
+                        fontSize: "13px",
+                      }}
+                    >
+                      Copy and paste the snippet below before your website’s
+                      closing {"</head>}"} tag. Once installed, <br /> Heap will
+                      automatically start receiving data.
+                    </p>
+                    <textarea
+                      rows="10"
+                      cols="50"
+                      readOnly
+                      style={{
+                        position: "relative",
+                        left: "-8rem",
+                        top: "9rem",
+                        color: "white",
+                        padding: "20px",
+                        height: "123px",
+                      }}
+                    >
+                      `Previous Epsy SetupInstall Epsy on your Development
+                      environment Select a platform to get started. Learn More
+                      About Epsy Analytics setup? What type of platform do you
+                      want to track?Don’t worry, you can add more than one!
+                      We’re just getting started. What type of platform do you
+                      want to track?`
+                    </textarea>
+                  </TabsContent>
+                </Tabs>
+              </div>
+            </div>
           </div>
         </div>
       </div>
