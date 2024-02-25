@@ -35,10 +35,17 @@ import {
 
 export function MainNavbar() {
   return (
-    <div className="absolute  left: -23rem">
+    <div
+      className=""
+      style={{
+        position: "sticky",
+        left: "0px",
+        top: "0px",
+      }}
+    >
       <DropdownMenu open={true}>
         <DropdownMenuTrigger />
-        <DropdownMenuContent>
+        <DropdownMenuContent style={{ marginTop: "-23px" }}>
           <DropdownMenuLabel>Epsy</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {/* Use Link component for client-side navigation */}
