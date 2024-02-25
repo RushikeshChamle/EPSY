@@ -6,6 +6,7 @@ import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
 import ShowChartRoundedIcon from "@mui/icons-material/ShowChartRounded";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
@@ -39,12 +40,13 @@ export function MainNavbar() {
       className=""
       style={{
         position: "sticky",
-        left: "0px",
+        left: "0rem",
         top: "0px",
+        marginTop: "1px",
       }}
     >
-      <DropdownMenu open={true}>
-        <DropdownMenuTrigger />
+      <DropdownMenu>
+        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
         <DropdownMenuContent style={{ marginTop: "-23px" }}>
           <DropdownMenuLabel>Epsy</DropdownMenuLabel>
           <DropdownMenuSeparator />
