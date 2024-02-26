@@ -88,11 +88,7 @@ export function DataTable<TData, TValue>({
         />
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger asChild></DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
@@ -114,7 +110,14 @@ export function DataTable<TData, TValue>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div
+        className="rounded-md border"
+        style={{
+          position: "relative",
+        }}
+
+        // border--Color: "#2F3744",
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

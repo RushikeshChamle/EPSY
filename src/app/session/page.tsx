@@ -60,7 +60,12 @@ export default async function page() {
       }}
     >
       {/* <MainNavbar /> */}
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          position: "relative",
+        }}
+      >
         <h2 id="title">Session</h2>
         <h2 id="event">Filter by event</h2>
         <h2 id="user">Filter by User</h2>
