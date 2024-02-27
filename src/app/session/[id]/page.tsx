@@ -184,6 +184,17 @@ export default function sessionDetails({ params }) {
             <LinkIcon></LinkIcon>
           </Button>
         </div>
+
+        <div>
+          <iframe
+            id="iframecontent"
+            src="https://www.youtube.com/embed/gfU1iZnjRZM"
+            frameBorder="0"
+            allowFullScreen
+            width="600"
+            height="300"
+          />
+        </div>
       </Separator>
       <Separator
         id="verticallseparator"

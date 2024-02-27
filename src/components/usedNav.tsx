@@ -47,12 +47,13 @@ export function MainNavbar() {
         marginTop: "1px",
       }}
     >
-      <DropdownMenu open={true}>
+      <DropdownMenu>
         <DropdownMenuTrigger>Open</DropdownMenuTrigger>
         <DropdownMenuContent
           style={{
             marginTop: "-23px",
-            // background: "rgb(249 245 255)",
+            background: " rgb(252 250 255)",
+            // "rgb(249 245 255)",
             borderColor: "transparent",
           }}
         >
