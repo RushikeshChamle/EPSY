@@ -47,9 +47,15 @@ export function MainNavbar() {
         marginTop: "1px",
       }}
     >
-      <DropdownMenu>
+      <DropdownMenu open={true}>
         <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent style={{ marginTop: "-23px" }}>
+        <DropdownMenuContent
+          style={{
+            marginTop: "-23px",
+            // background: "rgb(249 245 255)",
+            borderColor: "transparent",
+          }}
+        >
           <DropdownMenuLabel>Epsy</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {/* Use Link component for client-side navigation */}
