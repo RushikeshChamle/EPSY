@@ -8,6 +8,7 @@ import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
 import ShowChartRoundedIcon from "@mui/icons-material/ShowChartRounded";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
+import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
@@ -37,6 +38,7 @@ import {
 export function MainNavbar() {
   return (
     <div
+      id="mainNavbarContainer"
       className=""
       style={{
         position: "sticky",

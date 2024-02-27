@@ -46,4 +46,24 @@
 
 }
 
+#detailspage{
+
+    display: flex;
+    flex-direction: column;
+    width: calc(100dvw - 14rem);
+    margin-left:18rem;
+    padding-left: 0px;
+    margin-top: -rem;
+    height: calc(100dvh - 1rem);
+    
+    /* background-color: aqua; */
+  
+
+
+
+}
+
+
+
+
 
