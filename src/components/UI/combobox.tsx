@@ -78,13 +78,13 @@ export function ComboboxDemo() {
           >
             {value
               ? frameworks.find((framework) => framework.value === value)?.label
-              : "Select framework..."}
+              : "Select Events"}
             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0">
           <Command>
-            <CommandInput placeholder="Search framework..." className="h-9" />
+            <CommandInput placeholder="Select Events" className="h-9" />
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
@@ -138,7 +138,7 @@ export function ComboboxDemo() {
           </PopoverTrigger>
           <PopoverContent className="w-[200px] p-0">
             <Command>
-              <CommandInput placeholder="select filter" className="h-9" />
+              <CommandInput placeholder="select User" className="h-9" />
               <CommandEmpty>No framework found.</CommandEmpty>
               <CommandGroup>
                 {frameworks.map((framework) => (
