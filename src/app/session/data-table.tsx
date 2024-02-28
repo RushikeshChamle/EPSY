@@ -1,6 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 
+import Link from "next/link"; // Import Link from React Router
+
 import * as React from "react";
 import {
   ColumnDef,
@@ -32,6 +34,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Payment } from "@mui/icons-material";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -79,10 +82,10 @@ export function DataTable<TData, TValue>({
 
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter user..."
+          value={(table.getColumn("user")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("user")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -121,6 +124,7 @@ export function DataTable<TData, TValue>({
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
+              // <Link key={row.id} href={`/details/${Payment.id}`}>
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
@@ -135,11 +139,13 @@ export function DataTable<TData, TValue>({
                   );
                 })}
               </TableRow>
+              // </Link>
             ))}
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
+                // <Link key={row.id} href={`/${Payment.id}`}>
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
@@ -153,6 +159,7 @@ export function DataTable<TData, TValue>({
                     </TableCell>
                   ))}
                 </TableRow>
+                // </Link>
               ))
             ) : (
               <TableRow>

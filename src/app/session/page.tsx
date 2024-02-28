@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import Link from "next/link";
 
 import { DatePickerWithRange } from "/Users/rushikesh/Documents/EPSY/src/components/UI/datepicker";
 
@@ -15,37 +16,25 @@ async function getData(): Promise<Payment[]> {
   return [
     {
       id: "728ed52f",
-      amount: 100,
-      status: "failed",
-      email: "prasad@gmail.com",
+      time: "100",
+      pageviewed: "2 Pages",
+      user: "prasad@gmail.com",
     },
 
     {
       id: "728edee2f",
-      amount: 100,
-      status: "pending",
-      email: "utsav@gmail.com",
+      time: "100",
+      pageviewed: "2 Pages",
+      user: "utsav@gmail.com",
     },
 
     {
       id: "728edee2f",
-      amount: 100,
-      status: "pending",
-      email: "utsav@gmail.com",
-    },
-    {
-      id: "728edee2f",
-      amount: 100,
-      status: "pending",
-      email: "utsav@gmail.com",
+      time: "100",
+      pageviewed: "2 Pages",
+      user: "utsav@gmail.com",
     },
 
-    {
-      id: "728ed772f",
-      amount: 100,
-      status: "success",
-      email: "rushikesh@gmail.com",
-    },
     // ...
   ];
 }
