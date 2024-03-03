@@ -11,8 +11,10 @@ export const metadata: Metadata = {};
 
 export default function RootLayout({
   children,
+  showNavbar = true, // Default to true if not provided
 }: Readonly<{
   children: React.ReactNode;
+  showNavbar?: boolean; // Define showNavbar as an optional prop
 }>) {
   return (
     <html lang="en">
@@ -25,7 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MainNavbar />
+          {showNavbar && <MainNavbar />} {/* Conditionally render MainNavbar */}
           {children}
         </ThemeProvider>
       </body>
