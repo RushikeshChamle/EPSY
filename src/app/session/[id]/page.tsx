@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
+import "rrweb-player/dist/style.css";
+import * as rrweb from "rrweb";
 import "../styles.css";
 import { Separator } from "@/components/ui/separator";
 import LinkIcon from "@mui/icons-material/Link";
-
+import rrwebPlayer from "rrweb-player";
+import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -42,6 +46,39 @@ const tags = Array.from({ length: 50 }).map(
 
 export default function sessionDetails({ params }) {
   const id = params.id;
+
+  const [events, setEvents] = useState([]);
+
+  const fetchReplayedEvents = () => {
+    // Fetch the replayed events from the backend
+    fetch(`http://localhost:3000/replay/681`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Fetched events:", data);
+        setEvents(data || []);
+        replayEventsLocally(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching replayed events:", error);
+      });
+  };
+
+  const replayEvents = () => {
+    fetchReplayedEvents();
+  };
+
+  const replayEventsLocally = (events) => {
+    const player = new rrwebPlayer({
+      target: document.getElementById("player"),
+      props: {
+        events: events,
+        width: 600,
+        height: 300,
+      },
+    });
+
+    player.play();
+  };
 
   return (
     <div
@@ -186,14 +223,12 @@ export default function sessionDetails({ params }) {
         </div>
 
         <div>
-          <iframe
-            id="iframecontent"
-            src="https://www.youtube.com/embed/gfU1iZnjRZM"
-            frameBorder="0"
-            allowFullScreen
-            width="600"
-            height="300"
-          />
+          <button onClick={replayEvents}>Replay Events</button>
+
+          <div id="player"></div>
+
+          {/* Render the player */}
+          <div id="player"></div>
         </div>
       </Separator>
       <Separator
