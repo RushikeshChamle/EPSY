@@ -1,0 +1,91 @@
+#detailsaccount{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    width: calc(100dvw - 16rem);
+    margin-left:16.5rem;
+    padding-left: 0px;
+    margin-top: -1rem;
+    height: calc(100dvh - 1rem);
+    border: 1px solid red;
+    height: calc(100dvh - 1rem);
+    /* background-color: aqua; */
+
+
+
+
+}
+
+
+#scrollbar1{
+
+    /* height: calc(100dvh - 1rem); */
+
+
+    width: 200px;
+  height: calc(100dvh - 1rem);
+  border-radius: 1px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px var(--black-a7);
+  background-color: white;
+
+
+
+   
+}
+
+
+#inputID{
+position: relative;
+    left: 20rem;
+    width: 17rem;
+}
+
+
+.settingsidepage{
+
+position: relative;
+    display: flex;
+    flex-direction: column;
+    /* width: calc(100dvw - 31rem); */
+
+    width: calc(72dvw - 9rem);
+    margin-left: 33.5rem;
+    padding-left: 0px;
+    margin-top: -47.7rem;
+    /* border: 1px solid rgb(79, 192, 212); */
+    height: calc(100dvh - 1rem);
+ 
+
+
+
+}
+
+.settingTitle{
+
+    font-size: larger;
+    font-weight: 500;
+
+
+
+
+}
+
+/* table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
