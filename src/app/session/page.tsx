@@ -10,6 +10,7 @@ import { ComboboxDemo } from "../../components/UI/combobox";
 import { Payment, columns } from "./column";
 import { DataTable } from "./data-table";
 
+import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
 
@@ -43,38 +44,40 @@ export default async function page() {
   const data = await getData();
 
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
-      {/* <MainNavbar /> */}
+    <RootLayout showNavbar={true}>
       <div
-        className="container"
         style={{
           position: "relative",
         }}
       >
-        <h2 id="title">Session</h2>
-        <h2 id="event">Filter by event</h2>
-        <h2 id="user">Filter by User</h2>
-        <h2 id="daterange">Select the Daterange</h2>
-        <ComboboxDemo />
-
-        <DatePickerWithRange />
-
+        {/* <MainNavbar /> */}
         <div
-          id="sessiondata"
-          className="container mx-auto py-20"
+          className="container"
           style={{
             position: "relative",
-            left: "-19rem",
-            width: "74rem",
           }}
         >
-          <DataTable columns={columns} data={data} />
+          <h2 id="title">Session</h2>
+          <h2 id="event">Filter by event</h2>
+          <h2 id="user">Filter by User</h2>
+          <h2 id="daterange">Select the Daterange</h2>
+          <ComboboxDemo />
+
+          <DatePickerWithRange />
+
+          <div
+            id="sessiondata"
+            className="container mx-auto py-20"
+            style={{
+              position: "relative",
+              left: "-19rem",
+              width: "74rem",
+            }}
+          >
+            <DataTable columns={columns} data={data} />
+          </div>
         </div>
       </div>
-    </div>
+    </RootLayout>
   );
 }

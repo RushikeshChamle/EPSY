@@ -7,19 +7,17 @@ import { OverviewPage } from "../customcompeonet/Overview";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {};
+// export const metadata: Metadata = {};
 
 export default function RootLayout({
   children,
-  showNavbar = true, // Default to true if not provided
+  showNavbar = false, // Default to true if not provided
 }: Readonly<{
   children: React.ReactNode;
   showNavbar?: boolean; // Define showNavbar as an optional prop
 }>) {
   return (
     <html lang="en">
-      {/* <body className={inter.className}> */}
-
       <body>
         <ThemeProvider
           attribute="class"
@@ -27,7 +25,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {showNavbar && <MainNavbar />} {/* Conditionally render MainNavbar */}
+          {/* Pass showNavbar prop to MainNavbar */}
+          <MainNavbar showNavbar={showNavbar} />
           {children}
         </ThemeProvider>
       </body>

@@ -15,78 +15,81 @@ import {
 } from "/Users/rushikesh/Documents/EPSY/src/components/UI/dropdown-menu_setting.tsx";
 
 import "./style.css";
+import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
 
 const SettingOption = React.memo(() => {
   return (
-    <div id="detailsaccount">
-      <div>
-        <DropdownMenu>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <ScrollArea id="scrollbar3" scrollHideDelay={0}>
-              <DropdownMenuLabel>Setting</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+    <RootLayout showNavbar={true}>
+      <div id="detailsaccount">
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <ScrollArea id="scrollbar3" scrollHideDelay={0}>
+                <DropdownMenuLabel>Setting</DropdownMenuLabel>
+                <DropdownMenuSeparator />
 
-              <Link href="/account/general">
-                <DropdownMenuItem>General</DropdownMenuItem>
-              </Link>
+                <Link href="/account/general">
+                  <DropdownMenuItem>General</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/accountsetting">
-                <DropdownMenuItem>Account Setting</DropdownMenuItem>
-              </Link>
-              <DropdownMenuSeparator />
+                <Link href="/account/accountsetting">
+                  <DropdownMenuItem>Account Setting</DropdownMenuItem>
+                </Link>
+                <DropdownMenuSeparator />
 
-              <DropdownMenuLabel>Plan</DropdownMenuLabel>
+                <DropdownMenuLabel>Plan</DropdownMenuLabel>
 
-              <DropdownMenuSeparator />
+                <DropdownMenuSeparator />
 
-              <Link href="/account/planusage">
-                <DropdownMenuItem>Plan Usage</DropdownMenuItem>
-              </Link>
+                <Link href="/account/planusage">
+                  <DropdownMenuItem>Plan Usage</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/plandetails">
-                <DropdownMenuItem>Plan Details</DropdownMenuItem>
-              </Link>
-              <DropdownMenuSeparator />
+                <Link href="/account/plandetails">
+                  <DropdownMenuItem>Plan Details</DropdownMenuItem>
+                </Link>
+                <DropdownMenuSeparator />
 
-              <DropdownMenuLabel>Project & Team</DropdownMenuLabel>
+                <DropdownMenuLabel>Project & Team</DropdownMenuLabel>
 
-              <DropdownMenuSeparator />
+                <DropdownMenuSeparator />
 
-              <Link href="/account/project">
-                <DropdownMenuItem>Project</DropdownMenuItem>
-              </Link>
+                <Link href="/account/project">
+                  <DropdownMenuItem>Project</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/team">
-                <DropdownMenuItem>Team</DropdownMenuItem>
-              </Link>
+                <Link href="/account/team">
+                  <DropdownMenuItem>Team</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/users">
-                <DropdownMenuItem>Users</DropdownMenuItem>
-              </Link>
+                <Link href="/account/users">
+                  <DropdownMenuItem>Users</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/role">
-                <DropdownMenuItem>Role</DropdownMenuItem>
-              </Link>
+                <Link href="/account/role">
+                  <DropdownMenuItem>Role</DropdownMenuItem>
+                </Link>
 
-              <DropdownMenuSeparator />
+                <DropdownMenuSeparator />
 
-              <DropdownMenuLabel>Privacy & Security</DropdownMenuLabel>
+                <DropdownMenuLabel>Privacy & Security</DropdownMenuLabel>
 
-              <DropdownMenuSeparator />
+                <DropdownMenuSeparator />
 
-              <Link href="/account/privacy">
-                <DropdownMenuItem>Privacy & Security</DropdownMenuItem>
-              </Link>
+                <Link href="/account/privacy">
+                  <DropdownMenuItem>Privacy & Security</DropdownMenuItem>
+                </Link>
 
-              <Link href="/account/excluded">
-                <DropdownMenuItem>Excluded IP </DropdownMenuItem>
-              </Link>
-            </ScrollArea>
-          </DropdownMenuContent>
-        </DropdownMenu>
+                <Link href="/account/excluded">
+                  <DropdownMenuItem>Excluded IP </DropdownMenuItem>
+                </Link>
+              </ScrollArea>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
-    </div>
+    </RootLayout>
   );
 });
 export default SettingOption;
