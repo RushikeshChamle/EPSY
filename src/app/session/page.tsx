@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import Link from "next/link";
 
-import { DatePickerWithRange } from "/Users/rushikesh/Documents/EPSY/src/components/UI/datepicker";
+import { DatePickerWithRange } from "../../components/UI/datepicker";
 
 import { MainNavbar } from "/Users/rushikesh/Documents/EPSY/src/components/usedNav";
 import { ComboboxDemo } from "../../components/UI/combobox";
