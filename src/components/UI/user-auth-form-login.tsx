@@ -6,7 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
+import { useState } from "react";
 import GoogleIcon from "@mui/icons-material/Google";
 
 import { cn } from "@/lib/utils";
@@ -22,6 +25,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 type FormData = z.infer<typeof userAuthSchema>;
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -81,17 +85,31 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               </p>
             )}
 
-            <Label htmlFor="email">Password</Label>
+            <Label htmlFor="Password">Password *</Label>
 
-            <Input
-              id="Password"
-              placeholder="Enter your password"
-              type="password"
-              autoCapitalize="none"
-              autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
-            />
+            <div className="relative">
+              <Input
+                id="Password"
+                placeholder="Enter your password"
+                type={showPassword ? "text" : "password"}
+                autoCapitalize="none"
+                autoCorrect="off"
+                disabled={isLoading || isGitHubLoading}
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 flex items-center px-2"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <VisibilityOffIcon className="h-4 w-4" />
+                ) : (
+                  <VisibilityIcon className="h-4 w-4" />
+                )}
+              </button>
+            </div>
           </div>
+
           <button className={cn(buttonVariants())} disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />

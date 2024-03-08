@@ -128,9 +128,9 @@ export function UserAuthFormRegister({
             <Label htmlFor="email">Phone No </Label>
 
             <Input
-              id="Password"
+              id="Passwor"
               placeholder="Enter your phone no."
-              type="password"
+              type="number"
               autoCapitalize="none"
               autoCorrect="off"
               disabled={isLoading || isGitHubLoading}

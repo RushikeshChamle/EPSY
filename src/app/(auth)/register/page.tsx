@@ -32,8 +32,8 @@ export default function RegisterPage() {
             height: "100vh",
             position: "relative",
 
-            borderBottomRightRadius: "15px",
-            borderTopRightRadius: "15px",
+            borderBottomRightRadius: "7px",
+            borderTopRightRadius: "7px",
           }}
           src={registerImage}
           alt="Register"
