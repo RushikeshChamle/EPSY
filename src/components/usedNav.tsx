@@ -60,8 +60,8 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
           marginTop: "1px",
         }}
       >
-        <DropdownMenu>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+        <DropdownMenu modal={false} open={true}>
+          <DropdownMenuTrigger />
           <DropdownMenuContent
             style={{
               marginTop: "-23px",

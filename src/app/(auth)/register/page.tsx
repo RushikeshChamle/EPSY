@@ -44,7 +44,7 @@ export default function RegisterPage() {
           <div className="flex flex-col space-y-2 text-center">
             <Icons.logo className="mx-auto h-7 w-7" />
             <h1 className="text-2xl font-semibold tracking-tight">
-              Create your Espy account
+              Create your Epsy account
             </h1>
 
             <br />

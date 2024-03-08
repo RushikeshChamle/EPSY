@@ -11,7 +11,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import { useState } from "react";
 import GoogleIcon from "@mui/icons-material/Google";
-
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { userAuthSchema } from "@/lib/validations/auth";
 import { buttonVariants } from "@/components/ui/button";
@@ -98,7 +98,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               />
               <button
                 type="button"
-                className="absolute inset-y-0 right-0 flex items-center px-2"
+                className="absolute inset-y-5 right-0 flex items-center px-2"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -107,6 +107,26 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                   <VisibilityIcon className="h-4 w-4" />
                 )}
               </button>
+            </div>
+
+            <div
+              style={{
+                position: "relative",
+                left: "129px",
+                top: "-11px",
+              }}
+            >
+              <p className="px-8 text-center text-sm text-muted-foreground">
+                <Link
+                  href="/register"
+                  className="hover:text-brand underline underline-offset-4"
+                  style={{
+                    fontSize: "10px",
+                  }}
+                >
+                  Forgot Password
+                </Link>
+              </p>
             </div>
           </div>
 

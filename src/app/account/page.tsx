@@ -21,9 +21,15 @@ const SettingOption = React.memo(() => {
   return (
     <RootLayout showNavbar={true}>
       <div id="detailsaccount">
-        <div>
-          <DropdownMenu>
-            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+        <div
+          style={{
+            position: "relative",
+            top: "-35 px",
+          }}
+        >
+          <DropdownMenu modal={false} open={true}>
+            <DropdownMenuTrigger />
+
             <DropdownMenuContent>
               <ScrollArea id="scrollbar3" scrollHideDelay={0}>
                 <DropdownMenuLabel>Setting</DropdownMenuLabel>
