@@ -20,11 +20,11 @@ import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
 const SettingOption = React.memo(() => {
   return (
     <RootLayout showNavbar={true}>
-      <div id="detailsaccount">
+      <div id="detailsaccount" className="allpagewidth">
         <div
           style={{
             position: "relative",
-            top: "-35 px",
+            top: "-36 px",
           }}
         >
           <DropdownMenu modal={false} open={true}>

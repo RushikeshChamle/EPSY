@@ -65,9 +65,9 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
           <DropdownMenuContent
             style={{
               marginTop: "-23px",
-              background: " rgb(252 250 255)",
+              // background: " rgb(252 250 255)",
               // "rgb(249 245 255)",
-              borderColor: "transparent",
+              borderColor: "#171717",
             }}
           >
             <DropdownMenuLabel>Epsy</DropdownMenuLabel>

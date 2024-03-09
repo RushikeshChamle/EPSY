@@ -1,11 +1,11 @@
 import React from "react";
 
-import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
+import RootLayout from "../layout";
 
 export default function page() {
-  return;
-
-  <RootLayout showNavbar={true}>
-    <div></div>
-  </RootLayout>;
+  return (
+    <div>
+      <RootLayout showNavbar={true}>this is dashbord</RootLayout>
+    </div>
+  );
 }

@@ -1,5 +1,6 @@
 import { Payment, columns } from "./column";
 import { DataTable } from "./data-table";
+import RootLayout from "../layout";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -33,8 +34,12 @@ export default async function DemoPage() {
   const data = await getData();
 
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
+    <RootLayout showNavbar={true}>
+      <div className="container">
+        <div className="container mx-auto py-10">
+          <DataTable columns={columns} data={data} />
+        </div>
+      </div>
+    </RootLayout>
   );
 }
