@@ -68,6 +68,10 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
               // background: " rgb(252 250 255)",
               // "rgb(249 245 255)",
               borderColor: "#171717",
+              // borderColor: "Grey",
+
+              borderLeftColor: "transparent",
+              borderWidth: "2px",
             }}
           >
             <DropdownMenuLabel>Epsy</DropdownMenuLabel>

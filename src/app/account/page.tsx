@@ -21,16 +21,26 @@ const SettingOption = React.memo(() => {
   return (
     <RootLayout showNavbar={true}>
       <div id="detailsaccount" className="allpagewidth">
-        <div
-          style={{
-            position: "relative",
-            top: "-36 px",
-          }}
-        >
-          <DropdownMenu modal={false} open={true}>
+        <div>
+          <DropdownMenu
+            id="setting2"
+            modal={false}
+            open={true}
+            style={{
+              position: "relative",
+              top: "-36 px",
+            }}
+          >
             <DropdownMenuTrigger />
 
-            <DropdownMenuContent>
+            <DropdownMenuContent
+              style={{
+                position: "relative",
+                top: "-23px",
+                left: "7rem",
+                borderColor: "Transparent",
+              }}
+            >
               <ScrollArea id="scrollbar3" scrollHideDelay={0}>
                 <DropdownMenuLabel>Setting</DropdownMenuLabel>
                 <DropdownMenuSeparator />
