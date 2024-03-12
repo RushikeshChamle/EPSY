@@ -44,12 +44,14 @@ position: relative;
 .settingsidepage{
 
 position: relative;
+
+
     display: flex;
     flex-direction: column;
     /* width: calc(100dvw - 31rem); */
 
-    width: calc(72dvw - 9rem);
-    margin-left: 33.5rem;
+    width: calc(72dvw - 7rem);
+    margin-left: 30rem;
     padding-left: 0px;
     margin-top: -47.7rem;
     /* border: 1px solid rgb(79, 192, 212); */
@@ -57,13 +59,14 @@ position: relative;
  
 
 
-
 }
+
 
 .settingTitle{
 
     font-size: larger;
     font-weight: 500;
+
 
 
 

@@ -30,17 +30,24 @@ const accountSetting = () => {
 
         <br />
 
-        <label htmlFor="">Account Name</label>
+        <label htmlFor="">Organisation Name</label>
 
-        <Input
+        <span
+          style={{
+            fontSize: "14px",
+          }}
+        >
+          Name of Organisation
+        </span>
+        {/* <Input
           style={{
             width: "50%",
           }}
-        />
+        /> */}
 
         <br />
         <br />
-        <label htmlFor="">Account Name</label>
+        <label htmlFor="">Script</label>
 
         <p
           style={{
@@ -79,7 +86,7 @@ const accountSetting = () => {
 
           <br />
 
-          <ScrollArea className="h-[350px] w-[910px] rounded-md border p-4">
+          <ScrollArea className="h-[350px] w-[950px] rounded-md border p-4">
             <Table
               id="t1details"
               style={{
@@ -92,33 +99,24 @@ const accountSetting = () => {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="font-medium">App ID</TableCell>
+                  <TableCell id="AppId" className="font-medium">
+                    App ID
+                  </TableCell>
                   <TableCell>4281057113</TableCell>
                 </TableRow>
 
                 <TableRow>
-                  <TableCell className="font-medium">Project ID</TableCell>
-                  <TableCell>428105713</TableCell>
+                  <TableCell id="project_Name" className="font-medium">
+                    Project Name
+                  </TableCell>
+                  <TableCell>Add Project Name</TableCell>
                 </TableRow>
 
                 <TableRow>
-                  <TableCell className="font-medium">Project API Key</TableCell>
-                  <TableCell>Project API Key</TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell className="font-medium">App ID</TableCell>
-                  <TableCell>4281057113</TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell className="font-medium">Project ID</TableCell>
-                  <TableCell>428105713</TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell className="font-medium">Project API Key</TableCell>
-                  <TableCell>Project API Key</TableCell>
+                  <TableCell id="project_Key" className="font-medium">
+                    Project Key
+                  </TableCell>
+                  <TableCell>12345</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

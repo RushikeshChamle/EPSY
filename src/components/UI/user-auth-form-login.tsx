@@ -5,10 +5,11 @@ import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
+
 import * as z from "zod";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import axios from "axios"; // Import axios for making HTTP requests
 import { useState } from "react";
 import GoogleIcon from "@mui/icons-material/Google";
 import Link from "next/link";
@@ -40,26 +41,58 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   async function onSubmit(data: FormData) {
     setIsLoading(true);
 
-    const signInResult = await signIn("email", {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: searchParams?.get("from") || "/dashboard",
-    });
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: data.email.toLowerCase(),
+          password: data.password,
+        }),
+      });
 
-    setIsLoading(false);
+      const responseData = await response.json();
 
-    if (!signInResult?.ok) {
-      return toast({
-        title: "Something went wrong.",
-        description: "Your sign in request failed. Please try again.",
+      if (response.ok) {
+        // Assuming the API response includes a token
+        const token = responseData.token;
+        // You can handle storing the token and redirecting the user as needed
+        toast({
+          title: "Login successful",
+          description: "You have successfully logged in.",
+        });
+
+        // Fetch session details after successful login
+        const sessionResponse = await fetch("http://localhost:3000/session", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const sessionData = await sessionResponse.json();
+        // You can handle the session data here, for example, storing it in state or context
+
+        // Redirect to dashboard
+        window.location.href = "/dashboard"; // Using window.location.href for redirect
+      } else {
+        toast({
+          title: "Login failed",
+          description:
+            responseData.message || "An error occurred while logging in.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      toast({
+        title: "Login failed",
+        description: "An error occurred while logging in.",
         variant: "destructive",
       });
     }
 
-    return toast({
-      title: "Check your email",
-      description: "We sent you a login link. Be sure to check your spam too.",
-    });
+    setIsLoading(false);
   }
 
   return (
@@ -76,7 +109,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
+              disabled={isLoading}
               {...register("email")}
             />
             {errors?.email && (
@@ -85,16 +118,17 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               </p>
             )}
 
-            <Label htmlFor="Password">Password *</Label>
+            <Label htmlFor="password">Password *</Label>
 
             <div className="relative">
               <Input
-                id="Password"
+                id="password"
                 placeholder="Enter your password"
                 type={showPassword ? "text" : "password"}
                 autoCapitalize="none"
                 autoCorrect="off"
-                disabled={isLoading || isGitHubLoading}
+                disabled={isLoading}
+                {...register("password")}
               />
               <button
                 type="button"
@@ -109,20 +143,12 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               </button>
             </div>
 
-            <div
-              style={{
-                position: "relative",
-                left: "129px",
-                top: "-11px",
-              }}
-            >
+            <div style={{ position: "relative", left: "129px", top: "-11px" }}>
               <p className="px-8 text-center text-sm text-muted-foreground">
                 <Link
                   href="/register"
                   className="hover:text-brand underline underline-offset-4"
-                  style={{
-                    fontSize: "10px",
-                  }}
+                  style={{ fontSize: "10px" }}
                 >
                   Forgot Password
                 </Link>
@@ -138,6 +164,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </button>
         </div>
       </form>
+
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
