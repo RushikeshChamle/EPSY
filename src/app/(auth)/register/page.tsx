@@ -49,6 +49,7 @@ export default function RegisterPage() {
 
             <br />
           </div>
+
           <UserAuthFormRegister />
           <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}
@@ -65,7 +66,6 @@ export default function RegisterPage() {
             >
               Privacy Policy
             </Link>
-            .
           </p>
         </div>
       </div>

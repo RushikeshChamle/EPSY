@@ -15,6 +15,24 @@
 
 }
 
+/* .detailsaccount{
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: calc(100dvw - 14.1rem);
+  margin-left:14.5rem;
+  padding-left: 0px;
+  margin-top: -1.5rem;
+  height: calc(100dvh 0rem);
+  border: 1px solid red;
+  height: calc(100dvh);
+
+
+
+
+} */
+
 
 #scrollbar1{
 
@@ -43,13 +61,15 @@ position: relative;
 
 .settingsidepage{
 
+
 position: relative;
+
+
 
 
     display: flex;
     flex-direction: column;
     /* width: calc(100dvw - 31rem); */
-
     width: calc(72dvw - 7rem);
     margin-left: 30rem;
     padding-left: 0px;

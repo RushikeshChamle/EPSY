@@ -14,7 +14,8 @@ import * as z from "zod";
 import GoogleIcon from "@mui/icons-material/Google";
 
 import { cn } from "@/lib/utils";
-import { userAuthSchema } from "@/lib/validations/auth";
+import { userAuthSchemaregister } from "/Users/rushikesh/Documents/EPSY/src/lib/validations/authreg.ts";
+
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,7 +24,7 @@ import { Icons } from "@/components/ui/icons";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-type FormData = z.infer<typeof userAuthSchema>;
+type FormData = z.infer<typeof userAuthSchemaregister>;
 
 export function UserAuthFormRegister({
   className,
@@ -36,7 +37,7 @@ export function UserAuthFormRegister({
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(userAuthSchema),
+    resolver: zodResolver(userAuthSchemaregister),
   });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
@@ -45,26 +46,39 @@ export function UserAuthFormRegister({
   async function onSubmit(data: FormData) {
     setIsLoading(true);
 
-    const signInResult = await signIn("email", {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: searchParams?.get("from") || "/dashboard",
-    });
+    try {
+      const response = await fetch("http://localhost:8000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setIsLoading(false);
+      const responseData = await response.json();
 
-    if (!signInResult?.ok) {
-      return toast({
-        title: "Something went wrong.",
-        description: "Your sign in request failed. Please try again.",
+      if (response.ok) {
+        // Sign up was successful
+        toast({
+          title: "Sign Up Successful",
+          description: responseData.message,
+        });
+
+        // You can optionally implement sign-in functionality here if needed
+      } else {
+        // Sign up failed
+        throw new Error(responseData.message || "Sign up failed");
+      }
+    } catch (error) {
+      console.error("Sign up error:", error.message);
+      toast({
+        title: "Sign Up Failed",
+        description: error.message,
         variant: "destructive",
       });
     }
 
-    return toast({
-      title: "Check your email",
-      description: "We sent you a login link. Be sure to check your spam too.",
-    });
+    setIsLoading(false);
   }
 
   return (
@@ -72,19 +86,19 @@ export function UserAuthFormRegister({
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-12">
           <div className="grid gap-3">
-            <Label htmlFor="NAme">Your Name *</Label>
+            <Label htmlFor="name">Your Name *</Label>
 
             <Input
-              id="NAme"
+              id="name"
               placeholder="Enter your name"
               type="text"
               autoCapitalize="none"
               autoCorrect="off"
               disabled={isLoading || isGitHubLoading}
+              {...register("name")}
             />
 
             <Label htmlFor="email">Email *</Label>
-
             <Input
               id="email"
               placeholder="name@example.com"
@@ -101,16 +115,16 @@ export function UserAuthFormRegister({
               </p>
             )}
 
-            <Label htmlFor="Password">Password *</Label>
-
+            <Label htmlFor="password">Password *</Label>
             <div className="relative">
               <Input
-                id="Password"
+                id="password"
                 placeholder="Enter your password"
                 type={showPassword ? "text" : "password"}
                 autoCapitalize="none"
                 autoCorrect="off"
                 disabled={isLoading || isGitHubLoading}
+                {...register("password")}
               />
               <button
                 type="button"
@@ -125,18 +139,25 @@ export function UserAuthFormRegister({
               </button>
             </div>
 
-            <Label htmlFor="email">Phone No </Label>
-
-            <Input
-              id="Passwor"
-              placeholder="Enter your phone no."
-              type="number"
-              autoCapitalize="none"
-              autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
-            />
+            <div>
+              <Label htmlFor="contact_no">Phone No</Label>
+              <Input
+                id="contact_no"
+                placeholder="Enter your phone no."
+                type="number"
+                autoCapitalize="none"
+                autoCorrect="off"
+                disabled={isLoading || isGitHubLoading}
+                {...register("contact_no")}
+              />
+            </div>
           </div>
-          <button className={cn(buttonVariants())} disabled={isLoading}>
+
+          <button
+            type="submit"
+            className={cn(buttonVariants())}
+            disabled={isLoading}
+          >
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
@@ -144,6 +165,7 @@ export function UserAuthFormRegister({
           </button>
         </div>
       </form>
+
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

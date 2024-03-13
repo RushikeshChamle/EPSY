@@ -6,12 +6,12 @@ import "../style.css";
 
 import SettingOption from "../page";
 
-const page = () => {
+const plan_details = () => {
   return (
     <div>
       <SettingOption />
 
-      <div id="this " className="settingsidepage">
+      <div id="plan_details" className="settingsidepage">
         <div>
           <h1>This is rushikesh 3</h1>
         </div>
@@ -19,4 +19,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default plan_details;

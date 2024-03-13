@@ -1,5 +1,5 @@
 "use client";
-
+import jwt_decode from "jwt-decode";
 import * as React from "react";
 import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,7 +64,20 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           description: "You have successfully logged in.",
         });
 
+        // Decode the token to get user information
+        // const decodedToken = jwt_decode(token);
+
+        // // Include user data in the response
+        // const user = {
+        //   id: decodedToken.userId,
+        //   // Include other user information as needed
+        // };
+
+        // Store token and user data in local storage
         localStorage.setItem("token", token);
+        // localStorage.setItem("user", JSON.stringify(user));
+
+        // localStorage.setItem("token", token);
 
         // Fetch session details after successful login
         const sessionResponse = await fetch("http://localhost:8000/session", {
