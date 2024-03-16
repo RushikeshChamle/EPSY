@@ -1,15 +1,13 @@
 import React from "react";
-import { MainNavbar } from "@/components/usedNav";
 
-import { OverviewPage } from "@/customcompeonet/Overview";
+import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
 
 import RootLayout from "../layout";
 
 export default function page() {
   return (
-    <main>
-      <RootLayout showNavbar={true}>this is dashbord</RootLayout>
-      <OverviewPage />
-    </main>
+    <RootLayout showNavbar={true}>
+      <div className="detailsnav"></div>
+    </RootLayout>
   );
 }

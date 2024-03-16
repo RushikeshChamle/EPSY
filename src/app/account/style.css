@@ -65,11 +65,7 @@ position: relative;
 
 .settingsidepage{
 
-
 position: relative;
-
-
-
 
     display: flex;
     flex-direction: column;
@@ -77,11 +73,10 @@ position: relative;
     width: calc(72dvw - 7rem);
     margin-left: 30rem;
     padding-left: 0px;
-    margin-top: -47.7rem;
-    /* border: 1px solid rgb(79, 192, 212); */
+    margin-top: -53.7rem;
+    border: 1px solid rgb(79, 192, 212);
     height: calc(100dvh - 1rem);
  
-
 
 }
 

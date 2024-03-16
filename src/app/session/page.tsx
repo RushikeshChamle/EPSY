@@ -10,6 +10,8 @@ import { ComboboxDemo } from "../../components/UI/combobox";
 import { Payment, columns } from "./column";
 import { DataTable } from "./data-table";
 
+import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
+
 import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -51,7 +53,7 @@ export default async function page() {
           id="bodycontent"
           style={{
             position: "relative",
-            left: "1rem",
+            left: "2rem",
           }}
         >
           <h2 id="title">Session</h2>
@@ -63,13 +65,13 @@ export default async function page() {
           <DatePickerWithRange />
 
           <div
-          // id="sessiondata"
-          // className="container mx-auto py-20"
-          // style={{
-          //   position: "relative",
-          //   left: "-19rem",
-          //   width: "74rem",
-          // }}
+            id="sessiondata"
+            className="container mx-auto py-20"
+            style={{
+              position: "relative",
+              left: "-19rem",
+              width: "calc(100%)",
+            }}
           >
             <DataTable columns={columns} data={data} />
           </div>
