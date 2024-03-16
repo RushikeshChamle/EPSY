@@ -1,8 +1,13 @@
-"use client";
 import React from "react";
 
-import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
+import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
 
-export default () => {
-  return <RootLayout showNavbar={true}></RootLayout>;
-};
+import RootLayout from "../layout";
+
+export default function page() {
+  return (
+    <RootLayout showNavbar={true}>
+      <div className="detailsnav"></div>
+    </RootLayout>
+  );
+}

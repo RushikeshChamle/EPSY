@@ -11,6 +11,56 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+  }
+}
+
+
+
+/* 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -31,12 +81,12 @@
 
 
 
-    --input: 214.3 31.8% 91.4%;
+    /* --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
-  }
+  } */ 
 
-
+/* 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -58,10 +108,10 @@
 
 
     /* --border: 217.2 32.6% 70%; Changed lightness to 70% for grey color */
-    --input: 217.2 32.6% 17.5%;
+    /* --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
-}
+} */ 
 
 
 
@@ -167,6 +217,24 @@
 }
 
 
+
+.detailsnav{
+  /* position: relative; */
+
+  display: flex;
+  flex-direction: column;
+  width: calc(100dvw - 14.1rem);
+  margin-left:14.5rem;
+  padding-left: 0px;
+  margin-top: -1.5rem;
+  height: calc(100dvh 0rem);
+  border: 1px solid red;
+  height: calc(100dvh);
+
+
+}
+
+.auto {cursor: auto;}
 
 
 /* #mainNavbarContainer{

@@ -36,6 +36,8 @@ const menuItems = [
 ];
 
 export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
+  console.log("showNavbar:", showNavbar); // Add console log for debugging
+
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -49,6 +51,10 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
     localStorage.setItem("clickedMenuItemIndex", index.toString());
     setClickedIndex(index);
   };
+
+  if (!showNavbar) {
+    return null; // Don't render the navbar if showNavbar is false
+  }
 
   return (
     <div
@@ -81,6 +87,8 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
                 onClick={() => handleClick(index)}
                 style={{
                   backgroundColor: clickedIndex === index ? "#d6c5f8" : "",
+
+                  cursor: "pointer",
                 }}
               >
                 <item.icon style={{ marginRight: "6px" }} />

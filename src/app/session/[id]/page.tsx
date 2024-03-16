@@ -53,7 +53,7 @@ export default function sessionDetails({ params }) {
 
   const fetchReplayedEvents = () => {
     // Fetch the replayed events from the backend
-    fetch(`http://localhost:3000/replay/680`)
+    fetch(`http://localhost:8000/replay/680`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched events:", data);

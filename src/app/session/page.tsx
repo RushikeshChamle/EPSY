@@ -45,16 +45,13 @@ export default async function page() {
 
   return (
     <RootLayout showNavbar={true}>
-      <div
-        style={{
-          position: "relative",
-        }}
-      >
+      <div className="detailsnav">
         {/* <MainNavbar /> */}
         <div
-          className="container"
+          id="bodycontent"
           style={{
             position: "relative",
+            left: "1rem",
           }}
         >
           <h2 id="title">Session</h2>
@@ -66,13 +63,13 @@ export default async function page() {
           <DatePickerWithRange />
 
           <div
-            id="sessiondata"
-            className="container mx-auto py-20"
-            style={{
-              position: "relative",
-              left: "-19rem",
-              width: "74rem",
-            }}
+          // id="sessiondata"
+          // className="container mx-auto py-20"
+          // style={{
+          //   position: "relative",
+          //   left: "-19rem",
+          //   width: "74rem",
+          // }}
           >
             <DataTable columns={columns} data={data} />
           </div>

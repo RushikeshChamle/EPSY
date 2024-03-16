@@ -35,7 +35,7 @@ export default async function DemoPage() {
 
   return (
     <RootLayout showNavbar={true}>
-      <div className="container">
+      <div className="detailsnav">
         <div className="container mx-auto py-10">
           <DataTable columns={columns} data={data} />
         </div>
