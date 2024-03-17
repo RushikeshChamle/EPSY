@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "rrweb-player/dist/style.css";
 import * as rrweb from "rrweb";
 import "../styles.css";
@@ -46,292 +46,52 @@ const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`
 );
 
-export default function sessionDetails({ params }) {
-  const id = params.id;
-
+export default function SessionDetails({ params }) {
   const [events, setEvents] = useState([]);
 
+  useEffect(() => {
+    fetchReplayedEvents();
+  }, []);
+
   const fetchReplayedEvents = () => {
+    const sessionId = window.location.pathname.split("/").pop();
+
     // Fetch the replayed events from the backend
-    fetch(`http://localhost:8000/replay/680`)
+    fetch(`http://localhost:8000/replay/${sessionId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched events:", data);
         setEvents(data || []);
-        replayEventsLocally(data);
       })
       .catch((error) => {
         console.error("Error fetching replayed events:", error);
       });
   };
 
-  const replayEvents = () => {
-    fetchReplayedEvents();
-  };
+  useEffect(() => {
+    if (events.length > 0) {
+      const player = new rrwebPlayer({
+        target: document.getElementById("player"),
+        props: {
+          events: events,
+          width: 600,
+          height: 300,
+        },
+      });
 
-  const replayEventsLocally = (events) => {
-    const player = new rrwebPlayer({
-      target: document.getElementById("player"),
-      props: {
-        events: events,
-        width: 600,
-        height: 300,
-      },
-    });
-
-    player.play();
-  };
+      player.play();
+    }
+  }, [events]);
 
   return (
     <RootLayout showNavbar={true}>
       <div className="detailsnav">
-        {/* <div id="this" className="settingsidepage"> */}
-        <div
-          // className="settingsidepage"
-
-          // id="detailspage"
-          // className="container"
-          style={{
-            position: "relative",
-
-            left: "1rem",
-            top: "1rem",
-          }}
-        >
-          Session replay
-          <div
-            style={{
-              position: "relative",
-              right: "-76rem",
-              top: "-2rem",
-            }}
-          >
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  variant="outline"
-                  style={
-                    {
-                      // width: "8rem",
-                      // height: "2rem",
-                    }
-                  }
-                >
-                  <ContentCopyIcon
-                    sx={{ fontSize: 20, marginRight: "0.2rem" }}
-                  />{" "}
-                  Copy link
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Share link</DialogTitle>
-                  <DialogDescription>
-                    Anyone who has this link will be able to view this.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="flex items-center space-x-2">
-                  <div className="grid flex-1 gap-2">
-                    <Label htmlFor="link" className="sr-only">
-                      Link
-                    </Label>
-                    <Input
-                      id="link"
-                      defaultValue="https://ui.shadcn.com/docs/installation"
-                      readOnly
-                    />
-                  </div>
-                  <Button type="submit" size="sm" className="px-3">
-                    <span className="sr-only">Copy</span>
-                    <CopyIcon className="h-4 w-4" />
-                  </Button>
-                </div>
-                <DialogFooter className="sm:justify-start">
-                  <DialogClose asChild>
-                    <Button type="button" variant="secondary">
-                      Close
-                    </Button>
-                  </DialogClose>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
-          <div
-            style={{
-              position: "relative",
-              right: "-66rem",
-              top: "-4.5rem",
-              width: "7rem",
-            }}
-          >
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  ShareIcon
-                  style={
-                    {
-                      // width: "8rem",
-                      // height: "2rem",
-                    }
-                  }
-                >
-                  <ShareIcon sx={{ fontSize: 20, marginRight: "0.2rem" }} />{" "}
-                  Share Replay
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>ssReply</DialogTitle>
-                  <br />
-                  <DialogDescription>
-                    Copy and paste the session URL or email it to your
-                    teammates. If they don't have a Epsy account they'll receive
-                    an invite to join.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Input
-                      id="email"
-                      className="col-span-6"
-                      placeholder="Enter emails"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 row-span-5 items-center gap-4">
-                    <Textarea placeholder="Type your message here." />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <Button variant="secondary">Copy Link</Button>
-                  <Button type="submit">Share</Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
-          <Separator id="horizontaline">
-            <div>
-              <h3
-                style={{
-                  position: "relative",
-                  top: "1rem",
-                  color: "grey",
-                  fontSize: "14px",
-                }}
-              >
-                http://127.0.0.1:5500/new.html
-              </h3>
-
-              <Button
-                variant="link"
-                style={{
-                  position: "relative",
-                  backgroundColor: "transparent",
-                  color: "white",
-                  left: "14rem",
-                  top: "-12px",
-                  fontSize: "14px",
-                }}
-              >
-                <LinkIcon></LinkIcon>
-              </Button>
-            </div>
-
-            <div>
-              <button onClick={replayEvents}>Replay Events</button>
-
-              <div id="player"></div>
-
-              {/* Render the player */}
-              <div id="player"></div>
-            </div>
-          </Separator>
-          <Separator
-            id="verticallseparator"
-            orientation="vertical"
-            style={{
-              position: "relative",
-              left: "39rem",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                right: "-1rem",
-                width: "20rem",
-                top: "1rem",
-              }}
-            >
-              <h1
-                style={{
-                  color: "lightblue",
-                }}
-              >
-                8084269356103484
-              </h1>
-              <br />
-              <p
-                style={{
-                  color: "grey",
-                  fontSize: "14px",
-                }}
-              >
-                Feb 22, 2024 2:08 AM IST
-              </p>
-              <p
-                style={{
-                  color: "grey",
-                  fontSize: "14px",
-                }}
-              >
-                Pune, MH, India
-              </p>
-            </div>
-
-            <Input
-              placeholder="Search for path, error & click on text"
-              style={{
-                position: "relative",
-                width: "31rem",
-                right: "-1rem",
-                top: "4rem",
-              }}
-            ></Input>
-
-            <div
-              id="verticalscroller"
-              style={{
-                position: "relative",
-
-                left: "0rem",
-                top: "5rem",
-              }}
-            >
-              {" "}
-              <ScrollArea
-                className="h-72 w-48 rounded-md border"
-                style={{
-                  width: "34rem",
-                  height: "40rem",
-                  borderColor: "transparent",
-                }}
-              >
-                <div id="tagid" className="p-6">
-                  <h4 className="mb-4 text-sm font-medium leading-none">
-                    Tags
-                  </h4>
-                  {tags.map((tag) => (
-                    <>
-                      <div key={tag} className="text-sm">
-                        {tag}
-                      </div>
-                      <Separator className="my-2" />
-                    </>
-                  ))}
-                </div>
-              </ScrollArea>
-            </div>
-          </Separator>
+        <div>
+          <h2>Session Replay</h2>
         </div>
+        <br />
+        <br />
+        <div id="player"></div>
       </div>
     </RootLayout>
   );

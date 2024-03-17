@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./styles.css";
 import Link from "next/link";
@@ -10,45 +11,55 @@ import { ComboboxDemo } from "../../components/UI/combobox";
 import { Payment, columns } from "./column";
 import { DataTable } from "./data-table";
 
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
 import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
 
 import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
-async function getData(): Promise<Payment[]> {
-  // Fetch data from your API here.
 
-  return [
-    {
-      id: "728ed52f",
-      time: "100",
-      pageviewed: "2 Pages",
-      user: "prasad@gmail.com",
-    },
+import { useEffect, useState } from "react";
 
-    {
-      id: "728edee2f",
-      time: "100",
-      pageviewed: "2 Pages",
-      user: "utsav@gmail.com",
-    },
-
-    {
-      id: "728edee2f",
-      time: "100",
-      pageviewed: "2 Pages",
-      user: "utsav@gmail.com",
-    },
-
-    // ...
-  ];
+interface Session {
+  session_id: number;
+  project_id: number;
 }
 
-export default async function page() {
-  const data = await getData();
+export default function Page() {
+  const [sessions, setSessions] = useState<Session[]>([]);
+
+  useEffect(() => {
+    async function fetchSessions() {
+      try {
+        const response = await fetch("http://localhost:8000/project/4");
+        if (!response.ok) {
+          throw new Error("Failed to fetch sessions");
+        }
+        const sessionsData = await response.json();
+        setSessions(sessionsData);
+      } catch (error) {
+        console.error("Error fetching sessions:", error);
+      }
+    }
+
+    fetchSessions();
+  }, []);
+
+  const columns = [
+    { id: "session_id", Header: "Session ID", accessor: "session_id" },
+    { id: "project_id", Header: "Project ID", accessor: "project_id" },
+  ];
 
   return (
     <RootLayout showNavbar={true}>
       <div className="detailsnav">
-        {/* <MainNavbar /> */}
         <div
           id="bodycontent"
           style={{
@@ -63,17 +74,34 @@ export default async function page() {
           <ComboboxDemo />
 
           <DatePickerWithRange />
-
           <div
             id="sessiondata"
             className="container mx-auto py-20"
             style={{
               position: "relative",
-              left: "-19rem",
+              left: "-1rem",
               width: "calc(100%)",
             }}
           >
-            <DataTable columns={columns} data={data} />
+            <table className="shadow-md">
+              <TableHeader>
+                <TableHead>Session ID</TableHead>
+                <TableHead>Project ID</TableHead>
+              </TableHeader>
+
+              <TableBody>
+                {sessions.map((session, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">
+                      <Link href={`session/${session.session_id}`}>
+                        {session.session_id}
+                      </Link>
+                    </TableCell>
+                    <TableCell>{session.project_id}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </table>
           </div>
         </div>
       </div>
