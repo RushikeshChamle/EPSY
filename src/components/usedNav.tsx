@@ -73,7 +73,8 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
           style={{
             marginTop: "-23px",
             background: "rgb(252 250 255)",
-            borderColor: "Grey",
+            borderColor: "lightgrey",
+            borderRadius: "1px",
             borderLeftColor: "transparent",
             borderWidth: "2px",
           }}
