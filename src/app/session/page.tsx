@@ -30,6 +30,7 @@ import { useEffect, useState } from "react";
 interface Session {
   session_id: number;
   project_id: number;
+  created_date: string;
 }
 
 export default function Page() {
@@ -55,6 +56,7 @@ export default function Page() {
   const columns = [
     { id: "session_id", Header: "Session ID", accessor: "session_id" },
     { id: "project_id", Header: "Project ID", accessor: "project_id" },
+    { id: "created_date", Header: "Created Date", accessor: "created_date" },
   ];
 
   return (
@@ -87,6 +89,7 @@ export default function Page() {
               <TableHeader>
                 <TableHead>Session ID</TableHead>
                 <TableHead>Project ID</TableHead>
+                <TableHead>Created Date</TableHead>
               </TableHeader>
 
               <TableBody>
@@ -98,6 +101,7 @@ export default function Page() {
                       </Link>
                     </TableCell>
                     <TableCell>{session.project_id}</TableCell>
+                    <TableCell>{session.created_date}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

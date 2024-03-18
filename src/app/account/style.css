@@ -8,12 +8,13 @@
     padding-left: 0px;
     margin-top: -1.5rem;
     height: calc(100dvh 0rem);
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: calc(100dvh);
     /* background-color: aqua; */
 
 
 }
+
 
 
 
@@ -74,7 +75,7 @@ position: relative;
     margin-left: 30rem;
     padding-left: 0px;
     margin-top: -53.7rem;
-    border: 1px solid rgb(79, 192, 212);
+    /* border: 1px solid rgb(79, 192, 212); */
     height: calc(100dvh - 1rem);
  
 

@@ -195,7 +195,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 
 
     
@@ -230,7 +230,7 @@
   padding-left: 0px;
   margin-top: -1.5rem;
   height: calc(100dvh 0rem);
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: calc(100dvh);
 
 
