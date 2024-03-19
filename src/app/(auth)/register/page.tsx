@@ -39,7 +39,7 @@ export default function RegisterPage() {
           alt="Register"
         />
       </div>
-      <div className="lg:p-8">
+      <div className="lg:p-1">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <Icons.logo className="mx-auto h-7 w-7" />

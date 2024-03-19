@@ -138,6 +138,29 @@ export function UserAuthFormRegister({
                 )}
               </button>
             </div>
+            <Label htmlFor="org_name">Organisation Name *</Label>
+
+            <Input
+              id="org_name"
+              placeholder="Enter your organisation name"
+              type="text"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("org_name")}
+            />
+
+            <Label htmlFor="size">Organisation Size *</Label>
+
+            <Input
+              id="size"
+              placeholder="Enter your organisation size"
+              type="text"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("size")}
+            />
 
             <div>
               <Label htmlFor="contact_no">Phone No</Label>

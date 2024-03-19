@@ -46,11 +46,23 @@ const SettingOption = React.memo(() => {
                 <DropdownMenuSeparator />
 
                 <Link href="/account/general">
-                  <DropdownMenuItem>General</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    General
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/accountsetting">
-                  <DropdownMenuItem>Account Setting</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Account Setting
+                  </DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
 
@@ -59,11 +71,23 @@ const SettingOption = React.memo(() => {
                 <DropdownMenuSeparator />
 
                 <Link href="/account/planusage">
-                  <DropdownMenuItem>Plan Usage</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Plan Usage
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/plandetails">
-                  <DropdownMenuItem>Plan Details</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Plan Details
+                  </DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
 
@@ -72,33 +96,75 @@ const SettingOption = React.memo(() => {
                 <DropdownMenuSeparator />
 
                 <Link href="/account/project">
-                  <DropdownMenuItem>Project</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Project
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/team">
-                  <DropdownMenuItem>Team</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Team
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/users">
-                  <DropdownMenuItem>Users</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Users
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/role">
-                  <DropdownMenuItem>Role</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Role
+                  </DropdownMenuItem>
                 </Link>
 
                 <DropdownMenuSeparator />
 
-                <DropdownMenuLabel>Privacy & Security</DropdownMenuLabel>
+                <DropdownMenuLabel
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  Privacy & Security
+                </DropdownMenuLabel>
 
                 <DropdownMenuSeparator />
 
                 <Link href="/account/privacy">
-                  <DropdownMenuItem>Privacy & Security</DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Privacy & Security
+                  </DropdownMenuItem>
                 </Link>
 
                 <Link href="/account/excluded">
-                  <DropdownMenuItem>Excluded IP </DropdownMenuItem>
+                  <DropdownMenuItem
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    Excluded IP{" "}
+                  </DropdownMenuItem>
                 </Link>
               </ScrollArea>
             </DropdownMenuContent>

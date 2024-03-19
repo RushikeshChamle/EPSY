@@ -7,5 +7,9 @@ export const userAuthSchemaregister = z.object({
   name: z.string(),
   contact_no: z.string(),
 
+  org_name: z.string(),
+  size : z.string(),
+
+
 
 })
