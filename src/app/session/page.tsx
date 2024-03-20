@@ -36,14 +36,47 @@ interface Session {
 export default function Page() {
   const [sessions, setSessions] = useState<Session[]>([]);
 
+  // useEffect(() => {
+  //   async function fetchSessions() {
+  //     try {
+  //       const response = await fetch("http://localhost:8000/project/4");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch sessions");
+  //       }
+  //       const sessionsData = await response.json();
+  //       setSessions(sessionsData);
+  //     } catch (error) {
+  //       console.error("Error fetching sessions:", error);
+  //     }
+  //   }
+
+  //   fetchSessions();
+  // }, []);
+
   useEffect(() => {
     async function fetchSessions() {
       try {
-        const response = await fetch("http://localhost:8000/project/4");
+        // Fetch session data to get projectId
+        const token = localStorage.getItem("token"); // Retrieve token from localStorage
+        const response = await fetch("http://localhost:8000/sessiondata", {
+          headers: {
+            Authorization: token,
+          },
+        });
         if (!response.ok) {
+          throw new Error("Failed to fetch session data");
+        }
+        const sessionData = await response.json();
+        const projectId = sessionData.projects[0]?.ProjectId; // Assuming only one project for simplicity, adjust accordingly if needed
+
+        // Fetch sessions based on projectId
+        const sessionsResponse = await fetch(
+          `http://localhost:8000/project/${projectId}`
+        );
+        if (!sessionsResponse.ok) {
           throw new Error("Failed to fetch sessions");
         }
-        const sessionsData = await response.json();
+        const sessionsData = await sessionsResponse.json();
         setSessions(sessionsData);
       } catch (error) {
         console.error("Error fetching sessions:", error);

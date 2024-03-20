@@ -1,0 +1,62 @@
+ <script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/record/rrweb-record.min.js"></script>
+    <script>
+      let events = [];
+
+      rrwebRecord({
+        emit(event) {
+          // Push event into the events array
+          events.push(event);
+        },
+      });
+
+      function send() {
+        if (events.length > 0) {
+          const project_id = 6; // Set the project ID to 6
+          const body = JSON.stringify({ project_id, events }); // Include projectId in the payload
+          events = [];
+          fetch("http://localhost:8000/record", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body,
+          })
+            .then((response) => {
+              if (response.ok) {
+                // Data sent successfully, clear local storage
+                localStorage.removeItem("capturedEvents");
+              } else {
+                // Handle error or retry sending data
+                console.error("Failed to send data:", response.statusText);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      }
+
+      // Handle page unload (e.g., user closing the page or navigating away)
+      window.addEventListener("beforeunload", () => {
+        // Send all captured events before unloading the page
+        send();
+      });
+
+      // Check for captured events in local storage on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        const storedEvents = localStorage.getItem("capturedEvents");
+        if (storedEvents) {
+          events = JSON.parse(storedEvents);
+          // Send stored events to the server
+          send();
+        }
+      });
+
+      // Store captured events in local storage when new events are captured
+      function storeEventsLocally() {
+        localStorage.setItem("capturedEvents", JSON.stringify(events));
+      }
+
+      // Listen for changes in events array and store them locally
+      setInterval(storeEventsLocally, 1000); // Store events every second
+    </script>

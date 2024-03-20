@@ -1,0 +1,59 @@
+<script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/record/rrweb-record.min.js"></script>
+<script>
+  let events = [];
+  let lastActivityTime = Date.now();
+  const INACTIVITY_THRESHOLD = 30 * 1000; // 30 seconds of inactivity before sending data
+
+  rrwebRecord({
+    emit(event) {
+      // Record the time of the last user activity
+      lastActivityTime = Date.now();
+      // Push event into the events array
+      events.push(event);
+    },
+  });
+
+  function sendIfInactive() {
+    // Check if the user has been inactive for the specified threshold
+    if (Date.now() - lastActivityTime >= INACTIVITY_THRESHOLD) {
+      send();
+    }
+  }
+
+  function send() {
+    if (events.length > 0) {
+      const project_id = 6; // Set the project ID to 6
+      const body = JSON.stringify({ project_id, events }); // Include projectId in the payload
+      events = [];
+      fetch("http://localhost:8000/record", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+    }
+  }
+
+  // Check for inactivity periodically
+  setInterval(sendIfInactive, 10 * 1000); // Check every 10 seconds for inactivity
+
+  // Handle page unload (e.g., user closing the page or navigating away)
+  window.addEventListener('beforeunload', () => {
+    // Send any remaining events before unloading the page
+    send();
+  });
+
+  // Handle the case where the user navigates to a new page within the same website
+  window.addEventListener('unload', () => {
+    // Send any remaining events before unloading the page
+    send();
+  });
+
+  // Save events to local storage periodically
+  setInterval(() => {
+    localStorage.setItem('capturedEvents', JSON.stringify(events));
+  }, 60 * 1000); // Save events every 60 seconds
+</script>
+
+
