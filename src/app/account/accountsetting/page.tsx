@@ -138,12 +138,12 @@ const accountSetting = () => {
               <pre>
                 <code ref={scriptRef}>
                   {`<script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/record/rrweb-record.min.js"></script>
-                        <script>
+<script>
                           let events = [];
                           rrwebRecord({ emit(event) { events.push(event); } });
                           function save() { const project_id = ${projectId} ; const body = JSON.stringify({ project_id, events }); events = []; fetch("http://localhost:8000/record", { method: "POST", headers: { "Content-Type": "application/json", }, body, }); }
                           setInterval(save, 10 * 1000);
-                        </script>`}
+</script>`}
                 </code>
               </pre>
             </div>
