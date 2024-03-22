@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Tracking</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to send tracked data to the server
+        function sendTrackedData(eventData) {
+          // Send data to the server using an HTTP request
+          fetch("http://localhost:8000/events", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(eventData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Tracked data sent successfully:", data);
+            })
+            .catch((error) => {
+              console.error("Error sending tracked data:", error);
+            });
+        }
+
+        // Function to track events
+        function trackEvent(eventName, eventProperties) {
+          // Collect data
+          const projectID = 8; // Replace with your project ID
+          const eventData = {
+            project_id: projectID,
+            event_name: eventName,
+            event_properties: {
+              ...eventProperties,
+              event_timestamp: new Date().toISOString(),
+              user_id: "user123", // Placeholder for user ID (replace with actual user ID if available)
+              platform: navigator.platform,
+              location: "New York, USA", // Placeholder for location (replace with actual location if available)
+              domain: window.location.hostname,
+              path: window.location.pathname,
+              referrer: document.referrer || "Direct Traffic",
+              session_id: "session123", // Placeholder for session ID (replace with actual session ID if available)
+            },
+          };
+
+          // Send data to the server
+          sendTrackedData(eventData);
+        }
+
+        // Track Page View when the page loads
+        trackEvent("Page View", { page_url: window.location.href });
+
+        // Event listener for tracking clicks on all elements
+        document.querySelectorAll("*").forEach((element) => {
+          element.addEventListener("click", function (event) {
+            // Track Click Event
+            trackEvent("Click Event", {
+              element_text: event.target.innerText, // Text content of the clicked element
+              element_id: event.target.id, // ID of the clicked element
+              page_url: window.location.href, // Current URL
+              // Additional properties can be added here as needed
+            });
+          });
+        });
+
+        // Event listener for tracking form submissions
+        document.querySelectorAll("form").forEach((form) => {
+          form.addEventListener("submit", function (event) {
+            // Track Form Submission
+            trackEvent("Form Submission", {
+              form_id: form.id, // ID of the submitted form
+              page_url: window.location.href, // Current URL
+              // Additional properties can be added here as needed
+            });
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Your HTML content here -->
+    <h1>Event Tracking Demo</h1>
+    <button id="button1">Track Click Event 1</button>
+    <button id="button2">Track Click Event 2</button>
+    <form id="form1">
+      <input type="text" name="email" placeholder="Email" />
+      <button type="submit">Submit Form</button>
+    </form>
+  </body>
+</html>
