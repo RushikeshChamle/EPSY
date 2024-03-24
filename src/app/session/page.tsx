@@ -118,7 +118,11 @@ export default function Page() {
               width: "calc(100%)",
             }}
           >
-            <table className="shadow-md">
+            <table
+              style={{
+                fontSize: "14px",
+              }}
+            >
               <TableHeader>
                 <TableHead>Session ID</TableHead>
                 <TableHead>Project ID</TableHead>
