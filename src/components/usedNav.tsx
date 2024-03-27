@@ -71,12 +71,17 @@ export function MainNavbar({ showNavbar }: { showNavbar: boolean }) {
         <DropdownMenuTrigger />
         <DropdownMenuContent
           style={{
-            marginTop: "-23px",
+            marginTop: "-25px",
             background: "rgb(252 250 255)",
-            borderColor: "lightgrey",
+            // background: "#030712",
+
+            borderColor: "transparent",
+            left: "-2px",
             borderRadius: "1px",
             borderLeftColor: "transparent",
             borderWidth: "2px",
+            height: "60rem",
+            // color: "white",
           }}
         >
           <DropdownMenuLabel>Epsy</DropdownMenuLabel>

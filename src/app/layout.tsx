@@ -1,12 +1,14 @@
 "use client";
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MainNavbar } from "../components/usedNav";
 import { OverviewPage } from "../customcompeonet/Overview";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+
+import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
 
@@ -54,7 +56,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
