@@ -1,6 +1,6 @@
 import React from "react";
 
-import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
+import "/Users/rushikeshchamle/Documents/EPSY/src/app/globals.css";
 
 import RootLayout from "../layout";
 

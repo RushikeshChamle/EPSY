@@ -13,7 +13,7 @@ const teamPage = () => {
 
       <div id="team_Page" className="settingsidepage">
         <div>
-          <h1>This is rushikesh 9</h1>
+          <h1>This is rushikeshchamle 9</h1>
         </div>
       </div>
     </div>

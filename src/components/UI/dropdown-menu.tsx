@@ -6,7 +6,7 @@ import { Check, ChevronRight, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
+import "/Users/rushikeshchamle/Documents/EPSY/src/app/globals.css";
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;

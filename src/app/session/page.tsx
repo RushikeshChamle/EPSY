@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { DatePickerWithRange } from "../../components/UI/datepicker";
 
-import { MainNavbar } from "/Users/rushikesh/Documents/EPSY/src/components/usedNav";
+import { MainNavbar } from "/Users/rushikeshchamle/Documents/EPSY/src/components/usedNav";
 import { ComboboxDemo } from "../../components/UI/combobox";
 
 import { Payment, columns } from "./column";
@@ -21,9 +21,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
+import "/Users/rushikeshchamle/Documents/EPSY/src/app/globals.css";
 
-import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
+import RootLayout from "/Users/rushikeshchamle/Documents/EPSY/src/app/layout.tsx";
 
 import { useEffect, useState } from "react";
 
@@ -39,7 +39,7 @@ export default function Page() {
   // useEffect(() => {
   //   async function fetchSessions() {
   //     try {
-  //       const response = await fetch("http://localhost:8000/project/4");
+  //       const response = await fetch("http://localhost:9000/project/4");
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch sessions");
   //       }
@@ -58,7 +58,7 @@ export default function Page() {
       try {
         // Fetch session data to get projectId
         const token = localStorage.getItem("token"); // Retrieve token from localStorage
-        const response = await fetch("http://localhost:8000/sessiondata", {
+        const response = await fetch("http://localhost:9000/sessiondata", {
           headers: {
             Authorization: token,
           },
@@ -71,7 +71,7 @@ export default function Page() {
 
         // Fetch sessions based on projectId
         const sessionsResponse = await fetch(
-          `http://localhost:8000/project/${projectId}`
+          `http://localhost:9000/project/${projectId}`
         );
         if (!sessionsResponse.ok) {
           throw new Error("Failed to fetch sessions");

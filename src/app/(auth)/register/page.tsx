@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import { UserAuthFormRegister } from "@/components/UI/user-auth-form-register";
 
-import registerImage from "/Users/rushikesh/Documents/EPSY/src/components/UI/register.jpg";
+import registerImage from "/Users/rushikeshchamle/Documents/EPSY/src/components/UI/register.jpg";
 import Image from "next/image";
 
 export const metadata = {

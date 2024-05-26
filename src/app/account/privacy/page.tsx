@@ -15,7 +15,7 @@ const Page = () => {
         {" "}
         {/* Removed extra space in id */}
         <div>
-          <h1>This is rushikesh 5</h1>
+          <h1>This is rushikeshchamle 5</h1>
           <Button variant="outline">
             {" "}
             <Clipboard className="mr-2 h-4 w-4" />

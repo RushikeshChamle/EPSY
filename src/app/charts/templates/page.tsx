@@ -17,9 +17,9 @@
 // import SearchIcon from "@mui/icons-material/Search";
 // import { Separator } from "@/components/ui/separator";
 
-// import "/Users/rushikesh/Documents/EPSY/src/app/data/style.css";
+// import "/Users/rushikeshchamle/Documents/EPSY/src/app/data/style.css";
 // import { useEffect, useState } from "react";
-// import SettingOption from "/Users/rushikesh/Documents/EPSY/src/app/data/page.tsx";
+// import SettingOption from "/Users/rushikeshchamle/Documents/EPSY/src/app/data/page.tsx";
 
 // interface Event {
 //   event_id: number;
@@ -38,7 +38,7 @@
 //         // Fetch session data to get projectId
 //         const token = localStorage.getItem("token");
 //         const sessionResponse = await fetch(
-//           "http://localhost:8000/sessiondata",
+//           "http://localhost:9000/sessiondata",
 //           {
 //             headers: {
 //               Authorization: token,
@@ -53,7 +53,7 @@
 
 //         // Fetch events based on projectId
 //         const eventsResponse = await fetch(
-//           `http://localhost:8000/getevents?projectId=${projectId}`
+//           `http://localhost:9000/getevents?projectId=${projectId}`
 //         );
 //         if (!eventsResponse.ok) {
 //           throw new Error("Failed to fetch events");

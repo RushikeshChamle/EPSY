@@ -13,7 +13,7 @@ const page = () => {
 
       <div id="this " className="settingsidepage">
         <div>
-          <h1>This is rushikesh 7</h1>
+          <h1>This is rushikeshchamle 7</h1>
         </div>
       </div>
     </div>

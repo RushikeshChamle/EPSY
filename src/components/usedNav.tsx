@@ -26,7 +26,7 @@ const menuItems = [
   { label: "Overview", href: "/overview", icon: HomeOutlinedIcon },
   { label: "Dashboard", href: "/dashboard", icon: DashboardOutlinedIcon },
   { label: "Charts", href: "/charts", icon: InsertChartOutlinedRoundedIcon },
-  { label: "Analyse", href: "/analyse", icon: ShowChartRoundedIcon },
+  { label: "Feedback", href: "/feedback", icon: ShowChartRoundedIcon },
   { label: "Heatmap", href: "/heatmap", icon: WhatshotIcon },
   { label: "Data", href: "/data", icon: AutoAwesomeRoundedIcon },
   { label: "Users", href: "/users", icon: PeopleAltOutlinedIcon },

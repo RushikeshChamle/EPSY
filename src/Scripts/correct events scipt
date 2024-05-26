@@ -10,7 +10,7 @@
         // Function to send tracked data to the server
         function sendTrackedData(eventData) {
           // Send data to the server using an HTTP request
-          fetch("http://localhost:8000/events", {
+          fetch("http://localhost:9000/events", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

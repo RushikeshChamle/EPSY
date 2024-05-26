@@ -59,7 +59,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import "/Users/rushikesh/Documents/EPSY/src/app/globals.css";
+import "/Users/rushikeshchamle/Documents/EPSY/src/app/globals.css";
 import { Separator } from "@/components/ui/separator";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

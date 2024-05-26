@@ -13,7 +13,7 @@ const plan_details = () => {
 
       <div id="plan_details" className="settingsidepage">
         <div>
-          <h1>This is rushikesh 3</h1>
+          <h1>This is rushikeshchamle 3</h1>
         </div>
       </div>
     </div>

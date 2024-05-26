@@ -42,7 +42,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("http://localhost:9000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         // localStorage.setItem("token", token);
 
         // Fetch session details after successful login
-        const sessionResponse = await fetch("http://localhost:8000/session", {
+        const sessionResponse = await fetch("http://localhost:9000/session", {
           headers: {
             Authorization: `${token}`,
           },

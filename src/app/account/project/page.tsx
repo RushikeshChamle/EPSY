@@ -23,7 +23,7 @@ const GeneralDetails = () => {
   useEffect(() => {
     const fetchUserDetails = async (userId) => {
       try {
-        const response = await fetch(`http://localhost:8000/users/${userId}`, {
+        const response = await fetch(`http://localhost:9000/users/${userId}`, {
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
           },
@@ -54,7 +54,7 @@ const GeneralDetails = () => {
       const fetchProjects = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8000/projects/${userDetails.orgId}`
+            `http://localhost:9000/projects/${userDetails.orgId}`
           );
           if (response.ok) {
             const projectsData = await response.json();

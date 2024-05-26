@@ -14,7 +14,7 @@ import * as z from "zod";
 import GoogleIcon from "@mui/icons-material/Google";
 
 import { cn } from "@/lib/utils";
-import { userAuthSchemaregister } from "/Users/rushikesh/Documents/EPSY/src/lib/validations/authreg.ts";
+import { userAuthSchemaregister } from "/Users/rushikeshchamle/Documents/EPSY/src/lib/validations/authreg.ts";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,7 +47,7 @@ export function UserAuthFormRegister({
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/signup", {
+      const response = await fetch("http://localhost:9000/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

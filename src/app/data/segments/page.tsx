@@ -2,9 +2,9 @@
 
 import React from "react";
 
-import "/Users/rushikesh/Documents/EPSY/src/app/data/style.css";
+import "/Users/rushikeshchamle/Documents/EPSY/src/app/data/style.css";
 
-import SettingOption from "/Users/rushikesh/Documents/EPSY/src/app/data/page.tsx";
+import SettingOption from "/Users/rushikeshchamle/Documents/EPSY/src/app/data/page.tsx";
 
 const segment = () => {
   return (
@@ -13,7 +13,7 @@ const segment = () => {
 
       <div id="plan_details" className="settingsidepage">
         <div>
-          <h1>This is rushikesh segments</h1>
+          <h1>This is rushikeshchamle segments</h1>
         </div>
       </div>
     </div>

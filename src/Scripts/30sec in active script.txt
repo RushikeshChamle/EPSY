@@ -26,7 +26,7 @@
       const project_id = 6; // Set the project ID to 6
       const body = JSON.stringify({ project_id, events }); // Include projectId in the payload
       events = [];
-      fetch("http://localhost:8000/record", {
+      fetch("http://localhost:9000/record", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

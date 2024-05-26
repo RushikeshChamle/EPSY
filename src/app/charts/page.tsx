@@ -12,7 +12,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "/Users/rushikesh/Documents/EPSY/src/components/UI/dropdown-menu_setting.tsx";
+} from "/Users/rushikeshchamle/Documents/EPSY/src/components/UI/dropdown-menu_setting.tsx";
 
 export default function Charts() {
   return (

@@ -45,7 +45,7 @@ const accountSetting = () => {
     }
 
     // Fetch projectId from the API
-    fetch("http://localhost:8000/sessiondata", {
+    fetch("http://localhost:9000/sessiondata", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -141,7 +141,7 @@ const accountSetting = () => {
 <script>
                           let events = [];
                           rrwebRecord({ emit(event) { events.push(event); } });
-                          function save() { const project_id = ${projectId} ; const body = JSON.stringify({ project_id, events }); events = []; fetch("http://localhost:8000/record", { method: "POST", headers: { "Content-Type": "application/json", }, body, }); }
+                          function save() { const project_id = ${projectId} ; const body = JSON.stringify({ project_id, events }); events = []; fetch("http://localhost:9000/record", { method: "POST", headers: { "Content-Type": "application/json", }, body, }); }
                           setInterval(save, 10 * 1000);
 </script>`}
                 </code>

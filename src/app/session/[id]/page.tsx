@@ -57,7 +57,7 @@ export default function SessionDetails({ params }) {
     const sessionId = window.location.pathname.split("/").pop();
 
     // Fetch the replayed events from the backend
-    fetch(`http://localhost:8000/replay/${sessionId}`)
+    fetch(`http://localhost:9000/replay/${sessionId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched events:", data);

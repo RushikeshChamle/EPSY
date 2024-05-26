@@ -37,7 +37,7 @@ const general_Details = () => {
 
   const fetchUserDetails = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:8000/users/${userId}`, {
+      const response = await fetch(`http://localhost:9000/users/${userId}`, {
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },

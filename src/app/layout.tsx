@@ -22,7 +22,7 @@ export default function RootLayout({
     const fetchSessionData = async (userId) => {
       try {
         const response = await fetch(
-          `http://localhost:8000/sessiondata/${userId}`,
+          `http://localhost:9000/sessiondata/${userId}`,
           {
             headers: { "X-Request-Name": "SessionData" }, // Set custom header
           }

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import RootLayout from "/Users/rushikesh/Documents/EPSY/src/app/layout.tsx";
-import registerImage from "/Users/rushikesh/Documents/EPSY/src/components/UI/register.jpg";
+import RootLayout from "/Users/rushikeshchamle/Documents/EPSY/src/app/layout.tsx";
+import registerImage from "/Users/rushikeshchamle/Documents/EPSY/src/components/UI/register.jpg";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
         <div
           className="container flex h-screen w-screen flex-col items-center justify-center"
           // style={{
-          //   backgroundImage: `url('/Users/rushikesh/Documents/EPSY/src/components/UI/register.jpg')`,
+          //   backgroundImage: `url('/Users/rushikeshchamle/Documents/EPSY/src/components/UI/register.jpg')`,
 
           //   // Adjust the path as needed
           // }}
